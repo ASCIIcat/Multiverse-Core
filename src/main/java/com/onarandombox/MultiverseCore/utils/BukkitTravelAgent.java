@@ -2,6 +2,7 @@ package com.onarandombox.MultiverseCore.utils;
 
 import java.util.logging.Level;
 
+import com.onarandombox.MultiverseCore.MultiverseCore;
 import com.onarandombox.MultiverseCore.api.SafeTTeleporter;
 import com.onarandombox.MultiverseCore.destination.CannonDestination;
 import org.bukkit.Location;
@@ -104,7 +105,8 @@ public class BukkitTravelAgent implements TravelAgent {
     }
 
     public void setPortalEventTravelAgent(PlayerPortalEvent event) {
-        event.setPortalTravelAgent(this);
-        event.useTravelAgent(true);
+        MultiverseCore.staticLog(Level.FINE, "TravelAgent not available in this version");
+        //event.setPortalTravelAgent(this);
+        //event.useTravelAgent(true);
     }
 }

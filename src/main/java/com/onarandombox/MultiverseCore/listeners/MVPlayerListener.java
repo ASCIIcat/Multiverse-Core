@@ -69,6 +69,10 @@ public class MVPlayerListener implements Listener {
             return;
         }
 
+        if (event.isBedSpawn() && event.isAnchorSpawn()) {
+            this.plugin.log(Level.FINE, "Spawning " + event.getPlayer().getName() + " at their respawn-anchor");
+            return;
+        }
 
         if (mvWorld.getBedRespawn() && event.isBedSpawn()) {
             this.plugin.log(Level.FINE, "Spawning " + event.getPlayer().getName() + " at their bed");
@@ -305,14 +309,15 @@ public class MVPlayerListener implements Listener {
                     + "' because enforceaccess is off.");
         }
         if (!plugin.getMVConfig().isUsingDefaultPortalSearch()) {
-            try {
+            plugin.log(Level.FINE, "TravelAgent not available in this version");
+            /*try {
                 Class.forName("org.bukkit.TravelAgent");
                 if (event.getPortalTravelAgent() != null) {
                     event.getPortalTravelAgent().setSearchRadius(plugin.getMVConfig().getPortalSearchRadius());
                 }
             } catch (ClassNotFoundException ignore) {
                 plugin.log(Level.FINE, "TravelAgent not available for PlayerPortalEvent for " + event.getPlayer().getName());
-            }
+            }*/
 
         }
     }

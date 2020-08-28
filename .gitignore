@@ -43,3 +43,4 @@ debug.log
 # Doxygen
 /docs/html
 debug.txt
+.vscode/settings.json
